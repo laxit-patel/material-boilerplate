@@ -1,5 +1,6 @@
 <div class="header-3">
 
+    @include('frontend.layouts.navbars.nav')
 
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <div class="carousel slide" data-ride="carousel">
