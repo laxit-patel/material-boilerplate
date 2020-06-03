@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 
 Route::view('/about', 'frontend.about');
+Route::view('/quote', 'frontend.quotes');

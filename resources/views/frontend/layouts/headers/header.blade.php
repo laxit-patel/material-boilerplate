@@ -14,14 +14,13 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6 text-left">
-                                    <h1 class="title">Material Kit PRO</h1>
-                                    <h4>Dolce & Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.</h4>
+                                    <h1 class="title">तुम्हारे लिए किताब का कोई हिस्सा है मोहब्बत
+                                        हमारे लिए ईमान का हिस्सा है मोहब्बत</h1>
+                                    
                                     <br />
 
                                     <div class="buttons">
-                                        <a href="#pablo" class="btn btn-primary btn-lg">
-                                            Read More
-                                        </a>
+                                      
                                         <a href="#pablo" class="btn btn-just-icon btn-white btn-simple btn-lg">
                                             <i class="fa fa-twitter"></i>
                                         </a>
@@ -45,8 +44,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2 text-center">
-                                    <h1 class="title">Material Kit PRO</h1>
-                                    <h4>Dolce & Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.</h4>
+                                    <h1 class="title">खुद पुकारेगी मंज़िल तो ठहर जाऊँगा
+                                        वरना खुद्दार मुसाफिर हूँ गुजर जाऊँगा</h1>
+                                    
                                     <br />
                                     <h6>Connect with us on:</h6>
                                     <div class="buttons">
@@ -77,8 +77,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-7 col-md-offset-5 text-right">
-                                    <h1 class="title">New Collection 50% Off</h1>
-                                    <h4>There's no doubt that Tesla is delighted with the interest, but the data also raises a few questions. How long will it take for Tesla to fulfill all those extra orders?</h4>
+                                    <h1 class="title">खामोशियाँ ही बेहतर हैं
+                                        लफ़्ज़ों से लोग रूठ जाते हैं</h1>
+                                   
                                     <br />
 
                                     <div class="buttons">
