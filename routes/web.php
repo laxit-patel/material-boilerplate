@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatagoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,37 +25,20 @@ Route::view('/quote', 'frontend.quotes');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+//catagory routes
+Route::get('/create-catagory', 'CatagoryController@index')->name('create-catagory');
+Route::post('/create-new-catagory', 'CatagoryController@create')->name('create-new-catagory');
+Route::get('/removeCatagory/{id}', 'CatagoryController@destroy')->name('removeCatagory');
+
+
+//quote routes
+Route::get('/create-quote', 'QuoteController@create')->name('create-quote');
+//Route::post('/create-quote', 'QuoteController@create')->name('create-quote');
+
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
-		return view('pages.table_list');
-	})->name('table');
 
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
-
-	Route::get('icons', function () {
-		return view('pages.icons');
-	})->name('icons');
-
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
-
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
-
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
-
-	Route::get('upgrade', function () {
-		return view('pages.upgrade');
-	})->name('upgrade');
 });
 
 Route::group(['middleware' => 'auth'], function () {

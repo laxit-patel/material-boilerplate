@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'profile', 'titlePage' => __('User Profile')])
+@extends('layouts.app', ['activePage' => 'profile','breadCrumb' => 'Profile -> Edit', 'titlePage' => __('User Profile')])
 
 @section('content')
   <div class="content">
@@ -12,7 +12,7 @@
             <div class="card ">
               <div class="card-header card-header-rose">
                 <h4 class="card-title">{{ __('Edit Profile') }}</h4>
-                <p class="card-category">{{ __('User information') }}</p>
+                
               </div>
               <div class="card-body ">
                 @if (session('status'))
@@ -51,7 +51,7 @@
                 </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-rose">{{ __('Save') }}</button>
+                <button type="submit" class="btn btn-block btn-lg btn-rose">{{ __('Save') }}</button>
               </div>
             </div>
           </form>
@@ -66,7 +66,7 @@
             <div class="card ">
               <div class="card-header card-header-rose">
                 <h4 class="card-title">{{ __('Change password') }}</h4>
-                <p class="card-category">{{ __('Password') }}</p>
+                
               </div>
               <div class="card-body ">
                 @if (session('status_password'))
@@ -113,7 +113,7 @@
                 </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-rose">{{ __('Change password') }}</button>
+                <button type="submit" class="btn btn-rose btn-block btn-lg">{{ __('Change password') }}</button>
               </div>
             </div>
           </form>

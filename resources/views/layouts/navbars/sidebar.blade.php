@@ -30,16 +30,11 @@
             </a>
             <div class="collapse" id="collapseExample">
               <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span class="sidebar-mini"> MP </span>
-                    <span class="sidebar-normal"> My Profile </span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span class="sidebar-mini"> EP </span>
-                    <span class="sidebar-normal"> Edit Profile </span>
+       
+                <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+                  <a class="nav-link" href="{{ route('profile.edit') }}">
+                    <span class="sidebar-mini"> UP </span>
+                    <span class="sidebar-normal">{{ __('User profile') }} </span>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -56,36 +51,39 @@
         <ul class="nav">
           <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
             <a class="nav-link" href="{{ route('home') }}">
-              <i class="material-icons">dashboard</i>
+              <i class="material-icons text-rose">dashboard</i>
                 <p>{{ __('Dashboard') }}</p>
             </a>
           </li>
           <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-              <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
-              <p>{{ __('Laravel Examples') }}
+              <i class="material-icons text-rose">format_quote</i>
+              <p>{{ __('Quote') }}
                 <b class="caret"></b>
               </p>
             </a>
             <div class="collapse show" id="laravelExample">
               <ul class="nav">
-                <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+                <li class="nav-item{{ $activePage == 'create-quote' ? ' active' : '' }}">
+                  <a class="nav-link" href="/create-quote">
+                    <span class="sidebar-mini"> <i class="material-icons text-rose">add</i> </span>
+                    <span class="sidebar-normal">{{ __('Create') }} </span>
+                  </a>
+                </li>
+
+                <li class="nav-item{{ $activePage == 'view-quote' ? ' active' : '' }}">
                   <a class="nav-link" href="{{ route('profile.edit') }}">
-                    <span class="sidebar-mini"> UP </span>
-                    <span class="sidebar-normal">{{ __('User profile') }} </span>
+                    <span class="sidebar-mini"> <i class="material-icons text-rose">pageview</i> </span>
+                    <span class="sidebar-normal">{{ __('View') }} </span>
                   </a>
                 </li>
-                <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-                  <a class="nav-link" href="{{ route('user.index') }}">
-                    <span class="sidebar-mini"> UM </span>
-                    <span class="sidebar-normal"> {{ __('User Management') }} </span>
-                  </a>
-                </li>
+
+        
               </ul>
             </div>
           </li>
           <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-            <a class="nav-link" href="{{ route('table') }}">
+            <a class="nav-link" href="#">
               <i class="material-icons">content_paste</i>
                 <p>{{ __('Table List') }}</p>
             </a>
