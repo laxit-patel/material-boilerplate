@@ -5,7 +5,7 @@
     <div class="container-fluid" style="height: auto;">
         <div class="row align-items-center">
           <div class="col-lg-12">
-            <form class="form" method="POST" action="{{ route('register') }}">
+            <form class="form" method="POST" action="{{ route('create-new-quote') }}" enctype="multipart/form-data">
               @csrf
       
               <div class="card card-login card-hidden mb-3">
@@ -15,66 +15,85 @@
                 </div>
                 <div class="card-body ">
                   
-                  <div class="bmd-form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                  <div class="bmd-form-group{{ $errors->has('catagory') ? ' has-danger' : '' }}">
+                   
+                   
                     <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="text" name="name" class="form-control" placeholder="{{ __('Name...') }}" value="{{ old('name') }}" required>
-                    </div>
-                    @if ($errors->has('name'))
-                      <div id="name-error" class="error text-danger pl-3" for="name" style="display: block;">
-                        <strong>{{ $errors->first('name') }}</strong>
+                      
+                      <select name="catagory" id="catagory" class="form-control  selectpicker">
+
+                        <option selected disabled>--Select Catagory--</option>
+
+                        @foreach ($catagories as $catagory)
+
+                        <option value="{{ $catagory->id }}">{{ $catagory->catagory }}</option>
+
+                        @endforeach
+
+                      </select>
+
+                      
+                    
+                    @if ($errors->has('catagory'))
+                      <div id="name-error" class="error text-danger pl-3" for="catagory" style="display: block;">
+                        <strong>{{ $errors->first('catagory') }}</strong>
                       </div>
                     @endif
                   </div>
-                  <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }} mt-3">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">email</i>
-                        </span>
+
+
+
+
+
+                  <div class="row bmd-form-group input-group mt-3">
+
+                    <div class="col-md-9">
+                      <div class="bmd-form-group{{ $errors->has('quote') ? ' has-danger' : '' }} mt-3">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">format_quote</i>
+                            </span>
+                          </div>
+                          <textarea name="quote" id="" style="font-size: xx-large" rows="7" class="form-control" placeholder="Write Quote Here...."></textarea>
+                          
+                        </div>
+                        @if ($errors->has('quote'))
+                          <div id="email-error" class="error text-danger pl-3" for="quote" style="display: block;">
+                            <strong>{{ $errors->first('quote') }}</strong>
+                          </div>
+                        @endif
                       </div>
-                      <input type="email" name="email" class="form-control" placeholder="{{ __('Email...') }}" value="{{ old('email') }}" required>
                     </div>
-                    @if ($errors->has('email'))
-                      <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
-                        <strong>{{ $errors->first('email') }}</strong>
-                      </div>
-                    @endif
-                  </div>
-                  <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
-                        </span>
-                      </div>
-                      <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password...') }}" required>
+
+                    <div class="col-md-3">
+
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-raised">
+                            <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png" rel="nofollow" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                        <div>
+                            <span class="btn btn-raised btn-round btn-default btn-file">
+                                <span class="fileinput-new">Select image</span>
+                                <span class="fileinput-exists">Change</span>
+                                <input type="file" name="image" />
+                            </span>
+                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                        </div>
+
+                        @if ($errors->has('image'))
+                        <div id="email-error" class="error text-danger pl-3" for="image" style="display: block;">
+                          <strong>{{ $errors->first('image') }}</strong>
+                        </div>
+                      @endif
                     </div>
-                    @if ($errors->has('password'))
-                      <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">
-                        <strong>{{ $errors->first('password') }}</strong>
-                      </div>
-                    @endif
-                  </div>
-                  <div class="bmd-form-group{{ $errors->has('password_confirmation') ? ' has-danger' : '' }} mt-3">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
-                        </span>
-                      </div>
-                      <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password...') }}" required>
+
                     </div>
-                    @if ($errors->has('password_confirmation'))
-                      <div id="password_confirmation-error" class="error text-danger pl-3" for="password_confirmation" style="display: block;">
-                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                      </div>
-                    @endif
+
                   </div>
+
+
       
                 </div>
                 <div class="card-footer justify-content-center">

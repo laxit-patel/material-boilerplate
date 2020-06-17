@@ -13,13 +13,13 @@ class CreateQuoteTable extends Migration
      */
     public function up()
     {
-        Schema::create('quote', function (Blueprint $table) {
+        Schema::create('quotes', function (Blueprint $table) {
             $table->id();
             $table->text('quote');
             $table->string('user');
             $table->string('catagory');
             $table->string('image');
-            $table->text('likes');
+            $table->integer('likes')->default(0);
             $table->timestamps();
         });
     }

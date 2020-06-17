@@ -55,6 +55,7 @@
                 <p>{{ __('Dashboard') }}</p>
             </a>
           </li>
+
           <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
               <i class="material-icons text-rose">format_quote</i>
@@ -72,7 +73,7 @@
                 </li>
 
                 <li class="nav-item{{ $activePage == 'view-quote' ? ' active' : '' }}">
-                  <a class="nav-link" href="{{ route('profile.edit') }}">
+                  <a class="nav-link" href="{{ route('view-quote') }}">
                     <span class="sidebar-mini"> <i class="material-icons text-rose">pageview</i> </span>
                     <span class="sidebar-normal">{{ __('View') }} </span>
                   </a>
@@ -82,6 +83,14 @@
               </ul>
             </div>
           </li>
+
+          <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+            <a class="nav-link" href="/create-catagory">
+              <i class="material-icons text-rose">label</i>
+                <p>{{ __('Catagory') }}</p>
+            </a>
+          </li>
+
           <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
             <a class="nav-link" href="#">
               <i class="material-icons">content_paste</i>
