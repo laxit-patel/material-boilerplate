@@ -4520,7 +4520,7 @@ h2.title {
 }
 
 .card-pricing.card-background:after {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: transparent;
 }
 
 .card-raised {

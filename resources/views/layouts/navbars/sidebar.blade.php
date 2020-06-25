@@ -8,10 +8,10 @@
  
 
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+      <a href="/" class="simple-text logo-mini">
         <b class="text-rose">OQ</b>
       </a>
-      <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <a href="/" class="simple-text logo-normal">
         <b class="text-rose">OHO</b> Quote
       </a>
     </div>
@@ -24,7 +24,7 @@
           <div class="user-info">
             <a data-toggle="collapse" href="#collapseExample" class="username">
               <span>
-                {{ Auth::user()->name }}
+                {{ Auth::user()->name ?? "" }}
                 <b class="caret"></b>
               </span>
             </a>
@@ -91,12 +91,7 @@
             </a>
           </li>
 
-          <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-            <a class="nav-link" href="#">
-              <i class="material-icons">content_paste</i>
-                <p>{{ __('Table List') }}</p>
-            </a>
-          </li>
+
    
         
         </ul>

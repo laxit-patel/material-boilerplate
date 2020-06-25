@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="{{ asset('material') }}/css/material-dashboard.min.css" rel="stylesheet" />
+  <link href="{{ asset('material') }}/css/ohoquote.css" rel="stylesheet" />
+  
   
 
 </head>
@@ -74,6 +76,7 @@
               <!-- Library for adding dinamically elements -->
               <script src="{{ asset('material') }}/js/plugins/arrive.min.js"></script>
 
+
               <!-- Place this tag in your head or just before your close body tag. -->
               <script async defer src="https://buttons.github.io/buttons.js"></script>
               <!-- Chartist JS -->
@@ -83,6 +86,8 @@
               <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
               <script src="{{ asset('material') }}/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
               
+
+              @stack('js');
 
               <script>
                 $(document).ready(function() {

@@ -7,6 +7,8 @@ use App\Catagory;
 use Illuminate\Http\Request;
 use Laravel\Ui\Presets\React;
 use phpDocumentor\Reflection\Types\This;
+use Intervention\Image\ImageManagerStatic as Image;
+use DB;
 
 class QuoteController extends Controller
 {
@@ -35,18 +37,23 @@ class QuoteController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',    
         ]);
 
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        $image = $request->file('image');
+        $filename = time().'.'.request()->image->getClientOriginalExtension();
+        $path = public_path('images/' . $filename);
+        
+        $image_resize = Image::make($image->getRealPath())->resize(1000, 1000)->save($path);              
 
-        request()->image->move(public_path('images'), $imageName);
+        $height = Image::make($image)->height();
+        $width = Image::make($image)->width();
 
         $quote = new Quote;
         $quote->user = auth()->user()->id;
-        $quote->catagory = $request->catagory;
+        $quote->catagory_id = $request->catagory;
         $quote->quote = $request->quote;
-        $quote->image = $imageName;
+        $quote->image = $filename;
         $quote->save();
 
-        return back()->with('status', 'Quote Generated!!!');
+        return redirect('/view-quote')->with('status', 'Quote Generated!!!');
     }
 
     /**
@@ -68,8 +75,11 @@ class QuoteController extends Controller
      */
     public function show(Quote $quote)
     {
-        $quotes = Quote::all();
-        return view("quote.view", compact('quotes'));
+        $quotes = DB::table('quotes')
+        ->join('catagories','catagories.id','=','quotes.catagory_id')
+        ->select('quotes.id','quotes.catagory_id','quotes.image','quotes.quote','catagories.catagory')
+        ->get();
+        return view('quote.view', compact('quotes'));
     }
 
     /**

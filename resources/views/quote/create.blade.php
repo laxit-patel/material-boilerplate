@@ -23,12 +23,11 @@
                       <select name="catagory" id="catagory" class="form-control  selectpicker">
 
                         <option selected disabled>--Select Catagory--</option>
-
-                        @foreach ($catagories as $catagory)
-
+                        @forelse ($catagories as $catagory)
                         <option value="{{ $catagory->id }}">{{ $catagory->catagory }}</option>
-
-                        @endforeach
+                        @empty
+                        <option disabled value=""> Please Add New Catagory</option>
+                        @endforelse
 
                       </select>
 

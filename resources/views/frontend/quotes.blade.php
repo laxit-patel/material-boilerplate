@@ -8,155 +8,85 @@
 <div class="container">
     <div class="section">
 
-        <div class="row">
+    <div class="row align-items-center grid">
 
-            <div class="col-md-12">
 
-                <div class="card card-background" style="background-image: url('assets/img/bg5.jpg')">
 
-                    <div class="card-content">
+@foreach ($quotes as $quote)
 
-                        <h5 class="category-social text-left ">
-                            <i class="fa fa-quote-left text-rose "></i><b class="text-rose">Philosophy</b>
-                        </h5>
-
-                        <a href="#pablo">
-                            <h3 class="card-title">बहुत सुकून मिलता है जब उनसे हमारी बात होती है,
-                                वो हजारो रातों में वो एक रात होती है,
-                                जब निगाहें उठा कर देखते हैं वो मेरी तरफ,
-                                तब वो ही पल मेरे लीये पूरी कायनात होती है।</h3>
-                        </a>
-
-                        <div class="footer">
-                            <div class="author">
-                                <a href="#pablo">
-                                   <img src="assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
-                                   <span>Tania Andrew</span>
-                                </a>
-                            </div>
-                           <div class="stats">
-                                <i class="material-icons">favorite</i> 2.4K ·
-                                <i class="material-icons">share</i> 45
-                            </div>
-                        </div>
-
-                    </div>
-
+<div class="col-md-6 grid-item">
+    <div class="card card-testimonial" style="background:url('{{ asset('images/'.$quote->image) }}') no-repeat scroll center center transparent!important;background-size: cover!important;background">
+                <div class="icon">
+                  <i class="material-icons">format_quote</i>
                 </div>
-                
-            </div>
+                <div class="card-body ">
+                <blockquote class="card-description quote-overlay" >
 
-            <div class="col-md-12">
+                    <h3 class=" text-white" id="quote-text" style="margin-top:-4%;">{{ $quote->quote }}</h3>
 
-                <div class="card card-background" style="background-image: url('assets/img/examples/office1.jpg')">
+                    <div class="card-footer row justify-content-center " style="margin-bottom:-4%" >
 
-                    <div class="card-content">
-
-                        <h5 class="category-social text-left ">
-                            <i class="fa fa-quote-left text-rose "></i><b class="text-rose">Love</b>
-                        </h5>
-
-                        <a href="#pablo">
-                            <h3 class="card-title">तुम सुनो या न सुनो, हाथ बढ़ाओ न बढ़ाओ,
-                                डूबते-डूबते एक बार पुकारेंगे तुम्हें।</h3>
-                        </a>
-
-                        <div class="footer">
-                            <div class="author">
-                                <a href="#pablo">
-                                   <img src="assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
-                                   <span>Tania Andrew</span>
-                                </a>
-                            </div>
-                           <div class="stats">
-                                <i class="material-icons">favorite</i> 2.4K ·
-                                <i class="material-icons">share</i> 45
-                            </div>
-                        </div>
-
+                    <div class="col-md-6  ">
+                    <div class="author p-3">
+                                    <a href="#pablo">
+                                    <img src="../assets/img/user.png" alt="..." class="avatar img-raised">
+                                    <span class="text-white">{{ $quote->name }}</span>
+                                    </a>
+                                </div>
                     </div>
-
-                </div>
-                
-            </div>
-
-            <div class="col-md-12">
-
-                <div class="card card-background" style="background-image: url('assets/img/bg7.jpg')">
-
-                    <div class="card-content">
-
-                        <h5 class="category-social text-left ">
-                            <i class="fa fa-quote-left text-rose "></i><b class="text-rose">Love</b>
-                        </h5>
-
-                        <a href="#pablo">
-                            <h3 class="card-title">मेरी खामोशी बहुत कुछ कहती हे
-                                कान लगाकर नहीं दिल लगाकर सुनो
-                                मेरी खामोशी बहुत कुछ कहती हे
-                                कान लगाकर नहीं दिल लगाकर सुनोमेरी खामोशी बहुत कुछ कहती हे
-                                कान लगाकर नहीं दिल लगाकर सुनो</h3>
-                        </a>
-
-                        <div class="footer">
-                            <div class="author">
-                                <a href="#pablo">
-                                   <img src="assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
-                                   <span>Tania Andrew</span>
-                                </a>
-                            </div>
-                           <div class="stats">
-                                <i class="material-icons">favorite</i> 2.4K ·
-                                <i class="material-icons">share</i> 45
-                            </div>
-                        </div>
-
+                    <div class="col-md-6 ">
+                            <a href="javascript:;" class="btn btn-just-icon btn-rose btn-round">
+                                <i class="fa fa-share"></i>
+                            </a>
+                            <button id='copy-quote' data-clipboard-text="{{ $quote->quote }}" class="btn btn-just-icon btn-rose btn-round">
+                                <i class="fa fa-copy"></i>
+                            </button>
+                            <a href="{{ asset('images/'.$quote->image)}}" class="btn btn-just-icon btn-rose btn-round" data-toggle="tooltip" data-placement="left" data-original-title="Download Image">
+                                <i class="fa fa-download"></i>
+                            </a>
                     </div>
-
-                </div>
-                
-            </div>
-
-            <div class="col-md-12">
-
-                <div class="card card-background" style="background-image: url('assets/img/bg8.jpg')">
-
-                    <div class="card-content">
-
-                        <h5 class="category-social text-left ">
-                            <i class="fa fa-quote-left text-rose "></i><b class="text-rose">Love</b>
-                        </h5>
-
-                        <a href="#pablo">
-                            <h3 class="card-title">फसलों से अगर जीना सीख सकते हो तुम
-                                तो तुम्हे इजाजतहै हम से दूरियाँ करने की</h3>
-                        </a>
-
-                        <div class="footer">
-                            <div class="author">
-                                <a href="#pablo">
-                                   <img src="assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
-                                   <span>Tania Andrew</span>
-                                </a>
-                            </div>
-                           <div class="stats">
-                                <i class="material-icons">favorite</i> 2.4K ·
-                                <i class="material-icons">share</i> 45
-                            </div>
-                        </div>
-
                     </div>
-
+                    </blockquote>
                 </div>
-                
-            </div>
+             
+              </div>
+    </div>
+ 
+@endforeach
 
-        </div>
+</div>
 
     </div>
 </div>
 
 
+@push('js')
 
+<!-- Pushing Masonry -->
+<script src="{{ asset('material') }}/js/plugins/masonry.js"></script>
+<script src="{{ asset('material') }}/js/plugins/clipboard.js"></script>
+
+<script type="text/javascript">
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+});
+
+var clipboard = new ClipboardJS('#copy-quote');
+
+clipboard.on('success', function(e) {
+   alert('Copied');
+
+    e.clearSelection();
+});
+
+function copyIt(quote) {
+    var quote_text = quote.getAttribute("data-quote");
+    alert(quote_text);
+}
+
+
+</script>
+@endpush
 
 @endsection

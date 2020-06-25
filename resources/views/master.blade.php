@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="{{ asset('material') }}/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
+  
+  
 
 </head>
 
@@ -41,6 +41,9 @@
   <script src="{{ asset('material') }}/js/core/popper.min.js"></script>
   <script src="{{ asset('material') }}/js/core/bootstrap-material-design.min.js"></script>
   <script src="{{ asset('material') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+@stack('js')
+
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
   <!-- Place this tag in your head or just before your close body tag. -->

@@ -61,7 +61,7 @@
           <div class="row">
             <div class="col-md-12">
 
-              <div class="bootstrap-tagsinput info-badge">
+              <div class="bootstrap-tagsinput rose-badge">
 
                 @foreach($catagories as $catagory)
                 <span class="tag"> {{$catagory->catagory}} <span data-role="remove" onclick="location.href = '/removeCatagory/{{$catagory->id}}';"></span></span>

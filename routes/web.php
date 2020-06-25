@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('frontend.quotes');
-});
-
+Route::get('/', 'FrontendController@index')->name('frontend`');
 Route::view('/about', 'frontend.about');
 Route::view('/quote', 'frontend.quotes');
 

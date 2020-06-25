@@ -16,7 +16,8 @@
 
 	<!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/css/material-kit.css?v=1.2.1" rel="stylesheet"/>
+	<link href="../assets/css/material-kit.css?v=1.2.1" rel="stylesheet"/>
+	<link href="{{ asset('material') }}/css/ohoquote.css" rel="stylesheet" />
 </head>
 
 <body class="landing-page">
@@ -36,6 +37,9 @@
 	<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
 	<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="../assets/js/material.min.js"></script>
+
+	@stack('js')
+
 
 	<!--    Plugin for Date Time Picker and Full Calendar Plugin   -->
 	<script src="../assets/js/moment.min.js"></script>
