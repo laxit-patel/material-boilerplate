@@ -17,7 +17,9 @@ class CreateQuoteTable extends Migration
             $table->id();
             $table->text('quote');
             $table->string('user');
+            $table->string('author');
             $table->string('catagory_id');
+            $table->string('link');
             $table->string('image');
             $table->integer('likes')->default(0);
             $table->timestamps();

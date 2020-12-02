@@ -15,27 +15,30 @@
                 </div>
                 <div class="card-body ">
                   
-                  <div class="bmd-form-group{{ $errors->has('catagory') ? ' has-danger' : '' }}">
+                  <div class=" row bmd-form-group{{ $errors->has('catagory') ? ' has-danger' : '' }}">
                    
-                   
-                    <div class="input-group">
-                      
+      
+                    <div class="input-group col-md-6">
                       <select name="catagory" id="catagory" class="form-control  selectpicker">
-
                         <option selected disabled>--Select Catagory--</option>
                         @forelse ($catagories as $catagory)
                         <option value="{{ $catagory->id }}">{{ $catagory->catagory }}</option>
                         @empty
                         <option disabled value=""> Please Add New Catagory</option>
                         @endforelse
-
                       </select>
-
-                      
-                    
                     @if ($errors->has('catagory'))
-                      <div id="name-error" class="error text-danger pl-3" for="catagory" style="display: block;">
+                      <div class="error text-danger pl-3" for="catagory" style="display: block;">
                         <strong>{{ $errors->first('catagory') }}</strong>
+                      </div>
+                    @endif
+                  </div>
+
+                  <div class="input-group col-md-6"> 
+                  <input type="text" class="form-control" name="author" id="author" placeholder="Enter Author Name">
+                    @if ($errors->has('author'))
+                      <div class="error text-danger pl-3" for="author" style="display: block;">
+                        <strong>{{ $errors->first('author') }}</strong>
                       </div>
                     @endif
                   </div>

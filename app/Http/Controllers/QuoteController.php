@@ -34,6 +34,7 @@ class QuoteController extends Controller
         $this->validate($request,[
             'catagory' => 'required',
             'quote' => 'required',
+            'author' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',    
         ]);
 
@@ -46,13 +47,16 @@ class QuoteController extends Controller
         $height = Image::make($image)->height();
         $width = Image::make($image)->width();
 
+        //Generating unique link using hash function with checking function
         $quote = new Quote;
         $quote->user = auth()->user()->id;
         $quote->catagory_id = $request->catagory;
         $quote->quote = $request->quote;
+        $quote->author = $request->author;
         $quote->image = $filename;
+        $quote->link = sha1(time());
         $quote->save();
-
+        
         return redirect('/view-quote')->with('status', 'Quote Generated!!!');
     }
 
@@ -77,7 +81,7 @@ class QuoteController extends Controller
     {
         $quotes = DB::table('quotes')
         ->join('catagories','catagories.id','=','quotes.catagory_id')
-        ->select('quotes.id','quotes.catagory_id','quotes.image','quotes.quote','catagories.catagory')
+        ->select('quotes.id','quotes.catagory_id','quotes.image','quotes.quote','quotes.author','catagories.catagory')
         ->get();
         return view('quote.view', compact('quotes'));
     }
@@ -111,8 +115,10 @@ class QuoteController extends Controller
      * @param  \App\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Quote $quote)
+    public function destroy($id)
     {
-        //
+        $quote = Quote::find($id);
+        $quote->delete();
+        return back()->with('status', 'Quote Removed!');
     }
 }

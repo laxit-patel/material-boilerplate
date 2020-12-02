@@ -18,6 +18,9 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="../assets/css/material-kit.css?v=1.2.1" rel="stylesheet"/>
 	<link href="{{ asset('material') }}/css/ohoquote.css" rel="stylesheet" />
+	<style>
+	@stack('css');
+	</style>
 </head>
 
 <body class="landing-page">

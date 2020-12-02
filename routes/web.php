@@ -45,6 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/create-quote', 'QuoteController@index')->name('create-quote');
 	Route::post('/create-new-quote', 'QuoteController@create')->name('create-new-quote');
 	Route::get('/view-quote', 'QuoteController@show')->name('view-quote');
+	Route::get('/gaze/{id}', 'FrontendController@gaze')->name('gaze');
+	Route::get('/delete-quote/{id}', 'QuoteController@destroy');
 	//Route::post('/create-quote', 'QuoteController@create')->name('create-quote');
 
 });

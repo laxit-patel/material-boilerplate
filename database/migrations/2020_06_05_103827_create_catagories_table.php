@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateCatagoriesTable extends Migration
 {
     /**
@@ -18,6 +19,20 @@ class CreateCatagoriesTable extends Migration
             $table->text('catagory');
             $table->timestamps();
         });
+
+        DB::table('catagories')->insert([
+        ['catagory' => 'Inspirational'],
+        ['catagory' => 'Motivational'],
+        ['catagory' => 'Life'],
+        ['catagory' => 'Friendship'],
+        ['catagory' => 'Funny'],
+        ['catagory' => 'Happiness'],
+        ['catagory' => 'Love'],
+        ['catagory' => 'Success'],
+        ['catagory' => 'Thoughtful'],
+        ['catagory' => 'Wisdom'],
+        ['catagory' => 'Movies']
+        ]);
     }
 
     /**
