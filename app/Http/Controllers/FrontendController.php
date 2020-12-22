@@ -14,13 +14,15 @@ class FrontendController extends Controller
         ->join('catagories','catagories.id','=','quotes.catagory_id')
         ->join('users','users.id','=','quotes.user')
         ->select('quotes.id','quotes.catagory_id','quotes.image','quotes.quote','quotes.author','quotes.link','catagories.catagory','users.name')
-        ->get();
+        ->Paginate(25);
         return view('frontend.quotes', compact('quotes'));
     }
 
     public function gaze($link)
     {
-        $quote = DB::table('quotes')->where('link',$link)->first();
+        $quote = DB::table('quotes')
+        ->join('catagories','catagories.id','=','quotes.catagory_id')
+        ->where('link',$link)->first();
         return view('frontend.gaze', compact('quote'));
     }
 }

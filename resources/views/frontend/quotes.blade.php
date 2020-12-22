@@ -11,7 +11,7 @@
         
     <div class="row nav-align-center">
           <div class="col-md-12 ml-auto mr-auto text-center">
-            <ul class="nav nav-pills nav-pills-primary">
+            <ul class="nav nav-pills nav-pills-rose">
               <li class="nav-item active">
                 <a class="nav-link active" href="#pill1" data-toggle="tab">All</a>
               </li>
@@ -37,9 +37,9 @@
           </div>
         </div>
 
+
+
     <div class="row align-items-center grid">
-
-
 
 @forelse ($quotes as $quote)
 
@@ -49,7 +49,7 @@
                       <div class="card-body" style="background-color: rgba(0,0,0,.50)!important;border-radius:6px">
 
                       <h5 class="card-category text-left card-category-social" style="color:white;">
-                          <i class="fa fa-quote-left text-primary"></i> {{ $quote->catagory }}
+                          <i class="fa fa-quote-left text-rose"></i> {{ $quote->catagory }}
                         </h5>
 
                           <h3 class="card-title">{{ $quote->quote }}</h3>
@@ -58,7 +58,7 @@
                             
                         <div class="author pull-left">
                       <a href="#pablo">
-                        <i class="fa fa-user text-primary"></i>
+                        <i class="fa fa-user text-rose"></i>
                         <span style="color:white">{{ $quote->author }}</span>
                       </a>
                     </div>
@@ -70,12 +70,13 @@
 
 
                     <div class="back back-background" style="background-image: url(&quot;{{ asset('images/'.$quote->image) }}&quot;); width: 350px;">
-                      <div class="card-body">
+
+                    
+                    <div class="card-body">
                        
                         <div class=" stats text-center">
 
-
-                        <div class="row">
+                        <div class="row" >
 
                         <button class="btn btn-fab btn-round col" style="background:#3b5998">
                         <i class="fa fa-facebook"></i>
@@ -85,9 +86,9 @@
                         <i class="fa fa-instagram"></i>
                         <div class="ripple-container"></div></button>
 
-                        <button class="btn btn-primary btn-fab btn-round col" style="background:#25d366">
+                        <button class="btn btn-primary btn-fab btn-round col" data-link="{{ $quote->link}}" style="background:#25d366">
                         <i class="fa fa-whatsapp"></i>
-                        <div class="ripple-container"></div></button>
+                        <div class="ripple-container"></div></buttonata-action=>
 
                         <a href="/gaze/{{ $quote->link }}"><button  class="btn btn-fab btn-round col" data-toggle="tooltip" data-placement="top" data-original-title="Copy Link">
                         <i class="fa fa-link"></i>
@@ -96,25 +97,16 @@
                         </div>
 
                         <br>
-
-                        <div class="row">
-
-                          <button class="btn btn-primary btn-fab btn-round col" data-toggle="tooltip" data-placement="top" data-original-title="Copy Quote">
-                            <i class="material-icons">content_copy</i>
-                          <div class="ripple-container"></div></button>
-
-                          <button class="btn btn-primary btn-fab btn-round col" data-toggle="tooltip" data-placement="top" data-original-title="Download Image">
-                            <i class="material-icons">image</i>
-                          <div class="ripple-container"></div></button>
-
-                          <button class="btn btn-primary btn-fab btn-round btn-rotate col" data-toggle="tooltip" data-placement="top" data-original-title="Rotate">
-                            <i class="material-icons">refresh</i>
-                          <div class="ripple-container"></div></button>
-
-                          </div>
-
             
-                       
+                        <div class="container-fluid" style="position:fixed;bottom:0">
+
+                        <div class="btn-group " role="group" aria-label="Basic example">
+                          <button type="button" class="btn btn-primary">Copy</button>
+                          <button type="button" class="btn btn-primary">Download</button>
+                          <button type="button" class="btn btn-primary btn-rotate">Exit</button>
+                        </div>  
+
+                        </div>
                         </div>
                       </div>
                     </div>
@@ -141,11 +133,14 @@
 
 </div>
 
-
-
     </div>
 </div>
-
+<nav class="navbar navbar-expand-sm bg-rose nav-align-center" style="background-color:#e91e63">
+            <div class="container">
+            {{ $quotes->links() }}
+             
+            </div>
+          </nav>
 
 @push('js')
 
